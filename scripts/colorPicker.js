@@ -50,6 +50,7 @@ document.querySelector(".rgbConverter").addEventListener("submit", function(e) {
     pyblBlue = (rgbBlue / rgbTotal).toFixed(2);
 
     // Edit square result box to display pybl values
+    pyblResult.style.display = "block";
     pyblResult.innerHTML = "&rho;&gamma;&beta;L(" + pyblRed + ", " + pyblGreen + ", " + pyblBlue + ", " + luminance + ")";
 
     // Edit square box to have chosen color as background
