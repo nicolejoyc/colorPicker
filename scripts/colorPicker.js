@@ -53,6 +53,9 @@ document.querySelector(".rgbConverter").addEventListener("submit", function(e) {
     // Edit square result box to display pybl values
     pyblResult.innerHTML = "&rho;&gamma;&beta;L(" + pyblRed + ", " + pyblGreen + ", " + pyblBlue + ", " + LUMINANCE + ")";
 
+    // Edit square box to have chosen color as background
+    pyblResult.style.backgroundColor = "rgb(" + (rgbRed * 255) + ", " + (rgbGreen * 255) + ", " + (rgbBlue * 255) + ")";
+
   } else { // one of the rgb inputs is not valid
     alert("Please enter values between 0 and 1.");
   }
