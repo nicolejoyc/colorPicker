@@ -36,7 +36,8 @@ document.querySelector(".rgbConverter").addEventListener("submit", function(e) {
   }
 
   if (validateRGB()) {
-    const LUMINANCE = 1.0;
+
+    var luminance = Math.max(rgbRed, rgbGreen, rgbBlue);
 
     var pyblResult = document.querySelector("#newPYBL");
 
@@ -48,13 +49,18 @@ document.querySelector(".rgbConverter").addEventListener("submit", function(e) {
     pyblGreen = (rgbGreen / rgbTotal).toFixed(2);
     pyblBlue = (rgbBlue / rgbTotal).toFixed(2);
 
-    //console.log(pyblRed + " " + pyblGreen + " " + pyblBlue);
-
     // Edit square result box to display pybl values
-    pyblResult.innerHTML = "&rho;&gamma;&beta;L(" + pyblRed + ", " + pyblGreen + ", " + pyblBlue + ", " + LUMINANCE + ")";
+    pyblResult.innerHTML = "&rho;&gamma;&beta;L(" + pyblRed + ", " + pyblGreen + ", " + pyblBlue + ", " + luminance + ")";
 
     // Edit square box to have chosen color as background
     pyblResult.style.backgroundColor = "rgb(" + (rgbRed * 255) + ", " + (rgbGreen * 255) + ", " + (rgbBlue * 255) + ")";
+
+    // Edit text color of pybl value depending on luminance
+    if (luminance >= 0.7) {
+      pyblResult.style.color = "black";
+    } else {
+      pyblResult.style.color = "white";
+    }
 
   } else { // one of the rgb inputs is not valid
     alert("Please enter values between 0 and 1.");
