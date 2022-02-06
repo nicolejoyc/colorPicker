@@ -1,3 +1,13 @@
+/*
+  ********
+  Adding this comment so I can commit this file with
+  the correct commit message to say I finished the
+  Pivotal Tracker story (conversion to pbyl)
+
+  Because the story id was missing a number on the last
+  commit (6709a61)
+*/
+
 // Add event listener for when the form (.rbgConverter)
 // is submitted
 document.querySelector(".rgbConverter").addEventListener("submit", function(e) {
